@@ -1,0 +1,25 @@
+class Solution {
+    /**
+     * @param {string} s
+     * @param {string} t
+     * @return {boolean}
+     */
+    isAnagram(s, t) {
+        if(s.length != t.length) return false;
+
+        const count = {};
+
+        for(const c of s){
+            count[c] = (count[c] ?? 0) + 1;
+        }
+
+        for(const c of t){
+            if(!count[c]){
+                return false
+            } else {
+                count[c]--
+            }
+        }
+        return true;
+    }
+}
